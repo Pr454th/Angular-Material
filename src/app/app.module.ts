@@ -10,7 +10,8 @@ import { AgGridModule } from 'ag-grid-angular';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { EditButtonRendererComponent } from './home/edit-button-renderer.component';
+import { EditButtonRendererComponent } from './grid/edit-button-renderer.component';
+import { GridComponent } from './grid/grid.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes = [
     FormModelComponent,
     HomeComponent,
     EditButtonRendererComponent,
+    GridComponent,
   ],
   imports: [
     BrowserModule,
