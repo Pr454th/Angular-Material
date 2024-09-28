@@ -1,48 +1,83 @@
-<table border="1" class="table">
-  <thead>
-    <tr>
-      <th>Field 1</th>
-      <th>Field 2</th>
-      <th>Field 3</th>
-      <th>Field 4</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let row of rows; let i = index">
-      <td>
-        <select [(ngModel)]="row.field1">
-          <option value="" disabled>Select Field 1</option>
-          <option value="Option 1">Option 1</option>
-          <option value="Option 2">Option 2</option>
-        </select>
-      </td>
-      <td>
-        <select [(ngModel)]="row.field2">
-          <option value="" disabled>Select Field 2</option>
-          <option value="Option 1">Option 1</option>
-          <option value="Option 2">Option 2</option>
-        </select>
-      </td>
-      <td>
-        <select [(ngModel)]="row.field3">
-          <option value="" disabled>Select Field 3</option>
-          <option value="Option 1">Option 1</option>
-          <option value="Option 2">Option 2</option>
-        </select>
-      </td>
-      <td>
-        <select [(ngModel)]="row.field4">
-          <option value="" disabled>Select Field 4</option>
-          <option value="Option 1">Option 1</option>
-          <option value="Option 2">Option 2</option>
-        </select>
-      </td>
-      <td>
-        <button (click)="addRow()">+</button>
-        <button (click)="removeRow(i)" [disabled]="rows.length === 1">-</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button (click)="printRowsAsJson()">Print Rows as JSON</button>
+<mat-tab-group [(selectedIndex)]="selectedTabIndex">
+  <mat-tab label="Tab 1">
+    <!-- Content of Tab 1 -->
+    <!-- Display the rows added in Tab 2 -->
+    <table *ngIf="displayedRows.length > 0">
+      <thead>
+        <tr>
+          <th>Field 1</th>
+          <th>Field 2</th>
+          <th>Field 3</th>
+          <th>Field 4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of displayedRows">
+          <td>{{ row.field1 }}</td>
+          <td>{{ row.field2 }}</td>
+          <td>{{ row.field3 }}</td>
+          <td>{{ row.field4 }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Message if no rows are available -->
+    <p *ngIf="displayedRows.length === 0">No data to display.</p>
+  </mat-tab>
+
+  <mat-tab label="Tab 2">
+    <table border="1" class="table">
+      <thead>
+        <tr>
+          <th>Field 1</th>
+          <th>Field 2</th>
+          <th>Field 3</th>
+          <th>Field 4</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; let i = index">
+          <td>
+            <select [(ngModel)]="row.field1">
+              <option value="" disabled>Select Field 1</option>
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="row.field2">
+              <option value="" disabled>Select Field 2</option>
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="row.field3">
+              <option value="" disabled>Select Field 3</option>
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="row.field4">
+              <option value="" disabled>Select Field 4</option>
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="addRow()">+</button>
+            <button (click)="removeRow(i)" [disabled]="rows.length === 1">
+              -
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="printRowsAsJson()">Print Rows as JSON</button>
+    <button mat-raised-button color="primary" (click)="displayRows()">
+      Display Rows in Tab 1
+    </button>
+  </mat-tab>
+</mat-tab-group>

@@ -46,49 +46,6 @@ select {
   border-radius: 4px;
 }
 
-/* Button Styles */
-button {
-  background-color: #6c757d; /* Grey color */
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  cursor: pointer;
-  border-radius: 50%; /* Fully round buttons */
-  font-size: 18px;
-  width: 35px;
-  height: 35px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #5a6268;
-}
-
-button:disabled {
-  background-color: #adb5bd;
-  cursor: not-allowed;
-}
-
-/* Plus and Minus button colors */
-button.plus {
-  background-color: #28a745; /* Bootstrap green for add button */
-}
-
-button.minus {
-  background-color: #dc3545; /* Bootstrap red for remove button */
-}
-
-button.plus:hover {
-  background-color: #218838;
-}
-
-button.minus:hover {
-  background-color: #c82333;
-}
-
 /* Ensuring full-width dropdowns */
 select {
   width: 100%; /* Full-width dropdowns */

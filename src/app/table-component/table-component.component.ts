@@ -9,6 +9,8 @@ export class TableComponentComponent {
   rows: any[] = [
     { field1: '', field2: '', field3: '', field4: '', field5: '' },
   ];
+  displayedRows: any[] = [];
+  selectedTabIndex = 1;
 
   // Method to add a new row
   addRow() {
@@ -30,5 +32,15 @@ export class TableComponentComponent {
 
   printRowsAsJson() {
     console.log(JSON.stringify(this.rows, null, 2));
+  }
+
+  displayRows() {
+    // Deep clone the rows to avoid direct reference
+    this.displayedRows.push(this.rows[0]);
+    console.log(this.displayedRows);
+    this.rows = [
+      { field1: '', field2: '', field3: '', field4: '', field5: '' },
+    ];
+    this.selectedTabIndex = 0;
   }
 }

@@ -10,6 +10,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 import { EditButtonRendererComponent } from './grid/edit-button-renderer.component';
 import { GridComponent } from './grid/grid.component';
 import { TableComponentComponent } from './table-component/table-component.component';
@@ -37,6 +38,7 @@ const routes = [
     AgGridModule,
     MatDialogModule,
     MatIconModule,
+    MatTabsModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
