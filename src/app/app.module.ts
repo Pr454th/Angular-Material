@@ -12,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { EditButtonRendererComponent } from './grid/edit-button-renderer.component';
 import { GridComponent } from './grid/grid.component';
+import { TableComponentComponent } from './table-component/table-component.component';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes = [
     HomeComponent,
     EditButtonRendererComponent,
     GridComponent,
+    TableComponentComponent,
   ],
   imports: [
     BrowserModule,
