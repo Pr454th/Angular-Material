@@ -30,6 +30,7 @@
       <thead>
         <tr>
           <th>Field 1</th>
+          <th>Field 1 Suffix</th>
           <th>Field 2</th>
           <th>Field 3</th>
           <th>Field 4</th>
@@ -37,47 +38,97 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of rows; let i = index">
-          <td>
-            <select [(ngModel)]="row.field1">
-              <option value="" disabled>Select Field 1</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-            </select>
+        <tr
+          *ngFor="let row of rows; let i = index"
+          style="text-align: center; vertical-align: middle"
+        >
+          <td style="text-align: center; vertical-align: middle">
+            <div style="text-align: center; vertical-align: middle">
+              <mat-form-field appearance="outline">
+                <input
+                  matInput
+                  placeholder="Field 1"
+                  [(ngModel)]="row.field1"
+                  (input)="updateField1Suffix(i)"
+                />
+              </mat-form-field>
+            </div>
           </td>
           <td>
-            <select [(ngModel)]="row.field2">
-              <option value="" disabled>Select Field 2</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-            </select>
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder="Field Suffix"
+                [(ngModel)]="row.field1Suffix"
+                disabled
+              />
+            </mat-form-field>
           </td>
           <td>
-            <select [(ngModel)]="row.field3">
-              <option value="" disabled>Select Field 3</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-            </select>
+            <mat-form-field appearance="outline">
+              <mat-select [(ngModel)]="row.field2" placeholder="Select Field 2">
+                <mat-option value="Option 1">Option 1</mat-option>
+                <mat-option value="Option 2">Option 2</mat-option>
+              </mat-select>
+            </mat-form-field>
           </td>
           <td>
-            <select [(ngModel)]="row.field4">
-              <option value="" disabled>Select Field 4</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-            </select>
+            <mat-form-field appearance="outline">
+              <mat-select [(ngModel)]="row.field3" placeholder="Select Field 3">
+                <mat-option value="Option 1">Option 1</mat-option>
+                <mat-option value="Option 2">Option 2</mat-option>
+              </mat-select>
+            </mat-form-field>
           </td>
           <td>
-            <button (click)="addRow()">+</button>
-            <button (click)="removeRow(i)" [disabled]="rows.length === 1">
-              -
-            </button>
+            <div style="display: inline-flex; align-items: center">
+              <mat-form-field appearance="outline">
+                <mat-select
+                  [(ngModel)]="row.field4"
+                  placeholder="Select Field 4"
+                >
+                  <mat-option value="Option 1">Option 1</mat-option>
+                  <mat-option value="Option 2">Option 2</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </td>
+          <td>
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <button mat-icon-button (click)="addRow()">
+                <mat-icon>add_circle</mat-icon>
+              </button>
+              <button
+                style="margin-left: 10px"
+                mat-icon-button
+                (click)="removeRow(i)"
+                [disabled]="rows.length === 1"
+              >
+                <mat-icon>remove_circle</mat-icon>
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
-    <button (click)="printRowsAsJson()">Print Rows as JSON</button>
-    <button mat-raised-button color="primary" (click)="displayRows()">
-      Display Rows in Tab 1
-    </button>
+    <div style="display: flex; justify-content: flex-end; margin-top: 10px">
+      <button mat-raised-button color="primary" (click)="printRowsAsJson()">
+        Print Rows as JSON
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        style="margin-left: 10px"
+        (click)="displayRows()"
+      >
+        Display Rows in Tab 1
+      </button>
+    </div>
   </mat-tab>
 </mat-tab-group>

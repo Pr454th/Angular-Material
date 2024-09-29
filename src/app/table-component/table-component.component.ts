@@ -16,6 +16,7 @@ export class TableComponentComponent {
   addRow() {
     this.rows.push({
       field1: '',
+      field1Suffix: '',
       field2: '',
       field3: '',
       field4: '',
@@ -28,6 +29,12 @@ export class TableComponentComponent {
     if (this.rows.length > 1) {
       this.rows.splice(index, 1);
     }
+  }
+
+  updateField1Suffix(index: number) {
+    if (this.rows[index].field1 != '')
+      this.rows[index].field1Suffix = this.rows[index].field1 + '123';
+    else this.rows[index].field1Suffix = '';
   }
 
   printRowsAsJson() {

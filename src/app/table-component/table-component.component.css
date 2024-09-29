@@ -1,7 +1,6 @@
 /* Centering the table */
 table {
   width: 100%; /* Make the table fill the screen */
-  max-width: 1200px; /* Optional max width */
   margin: 20px auto; /* Center the table horizontally */
   border-collapse: separate; /* Allows for rounded corners */
   border-spacing: 0;
@@ -21,7 +20,10 @@ thead {
 
 th,
 td {
-  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 5px;
   border: 1px solid #dee2e6; /* Light grey border */
   text-align: center;
   width: 20%; /* Ensure columns are equally expanded */
@@ -39,7 +41,7 @@ tbody tr:hover {
 
 /* Dropdown styling */
 select {
-  padding: 5px;
+  padding: 2px;
   font-size: 14px;
   width: 100%;
   border: 1px solid #ced4da;
@@ -52,14 +54,3 @@ select {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
-  table {
-    font-size: 14px;
-  }
-
-  button {
-    font-size: 14px;
-    width: 30px;
-    height: 30px;
-  }
-}
